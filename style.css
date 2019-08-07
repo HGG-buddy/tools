@@ -1,0 +1,33 @@
+
+
+.bg1 {
+    position:absolute;
+    background-color:lightblue;
+    width: 100%;
+    height:100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+
+}
+
+.box1 {
+    background-color: lightblue;
+    padding: 20px;
+    position: absolute;
+    width:450px;
+    min-height: 330px;
+    top:50%;
+    
+    transform: translateY(-50%) translateX(-50%);
+
+}
+
+
+.square {
+    background-color: rgb(194, 194, 194);
+    padding: 15px;
+    position: absolute;
+
+  }
+
+
