@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Income Tax Calculator</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container d-flex align-items-center justify-content-center" style="width: 100vw; height: 100vh;">
+        <div class="square">
+            <div class="test">
+                <h1 class="display-8">Income Tax Calculator</h1>
+
+                <form>
+
+                    <div class="input-group mb-3">
+                        <label for="workIncome" class="col-12">What is your before tax work income p.a.?</label>
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">$</span>
+                        </div>
+                        <input type="number" class="form-control" aria-label="Amount (to the nearest dollar)"
+                            id="workIncome">
+                        <div class="input-group-append">
+                            <span class="input-group-text">.00</span>
+                        </div>
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <label for="workIncome" class="col-12">What is your other income p.a.?</label>
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">$</span>
+                        </div>
+                        <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)"
+                            id="otherIncome">
+                        <div class="input-group-append">
+                            <span class="input-group-text">.00</span>
+                        </div>
+                    </div>
+                    <label for="year" class="col-12">Financial year</label>
+                    <select class="form-control" id="year" style="margin-bottom: 10px;">
+                        <option>2020</option>
+                        <option>2019</option>
+                    </select>
+
+                    <button type="button" class="btn btn-primary" onclick="calc()">Calculate</button>
+
+                    <div id="result1" class="result"
+                        style="text-align: center; color:midnightblue; font-weight: 500; font-size: 20px; "></div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-------------------------- js --------------------------------------------->
+
+    <!-- /** each year is 1 array **/ -->
+
+    <script type="text/javascript">
+        var formula = [{ year: 2019, formula: [ {section: [0, 18200], execute: "0" }, { section: [18200, 37000], execute: "(income - 18200) * 0.19"},
+                    {section: [37000, 90000], execute: "((income - 90000) * 0.37)+20797"}] },
+            { year: 2020, formula: 
+                        [ { section: [0, 18200], 
+                            execute: "0" }, 
+                          { section: [18200, 37000], 
+                            execute: "(income - 18200) * 0.19"},
+                         { section: [37000, 90000],
+                         execute: "((income - 90000) * 0.37)+20797"
+                    }
+                ]
+            }
+        ];
+        function calc() {
+            var workIncome = parseInt(document.querySelector("#workIncome").value || 0);
+            var otherIncome = parseInt(document.querySelector("#otherIncome").value || 0);
+            var income = workIncome + otherIncome; //18201
+            var calculate;
+            var year = parseInt(document.querySelector("#year").value); // 2019
+
+
+            var $formula = formula.find(function (r) { return r.year === year }).formula;
+            
+            /**
+             * {
+                year: 2019,
+                formula: [
+                    {
+                        section: [0, 18200],
+                        execute: "0"
+                    },
+                    {
+                        section: [18200, 37000],
+                        execute: "(income - 18200) * 0.19"
+                    },
+                    {
+                        section: [37000, 90000],
+                        execute: "((income - 90000) * 0.37)+20797"
+                    }
+                ]
+            }
+             * */
+            
+            if ($formula) {
+                var f = $formula.find(function (r) { return income >= r.section[0] && income < r.section[1] });
+                if (f) {
+                    // (income - 18200) * 0.19
+                    // "(18201 - 18200) * 0.19"
+                    var rs = eval(f.execute.replace('income', income));
+                    document.querySelector('#result1').innerHTML = 'Your income tax is ' + '$' + rs;
+                }
+            }
+            // var formula = [
+            //     //2020
+            //     if (income < 18200) {
+            //         calculate = income * 0;
+            //     } else if (income < 37000) {
+            //         calculate = (income - 18200) * 0.19;
+            //     } else if (income < 90000) {
+            //         calculate = ((income - 37000) * 0.325)+3572;
+            //     } else if (income < 180000) {
+            //         calculate = ((income - 90000) * 0.37)+20797;
+            //     } ,
+            //     //2019
+            //     if (income < 18200) {
+            //         calculate = income * 0;
+            //     } else if (income < 37000) {
+            //         calculate = (income - 18200) * 0.19;
+            //     } else if (income < 90000) {
+            //         calculate = ((income - 37000) * 0.325)+3572;
+            //     } else if (income < 180000) {
+            //         calculate = ((income - 90000) * 0.37)+20797;
+            //     } else calculate = ((income - 180000) * 0.45)+54097),
+            // ]
+
+            // if (year == 2020) { formula[0]
+            // } else { formula[1]
+            // }
+
+            // document.querySelector('#result1').innerHTML = 'Your income tax is ' + '$' + calculate ;
+
+        }
+    </script>
+
+</body>
+
+</html>
