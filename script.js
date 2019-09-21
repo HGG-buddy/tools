@@ -39,23 +39,24 @@
                 } else calculate = ((income - 180000) * 0.45)+54097;
             } else if (year == 2018);
             
+            var netIncome = income - calculate
 
-            $(".net-pay-week").text(((calculate / 52).toFixed(0)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
-            $(".net-pay-fortnight").text(((calculate / 26).toFixed(0)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
-            $(".net-pay-month").text(((calculate / 12).toFixed(0)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
-            $(".net-pay-annual").text(((calculate).toFixed(0)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
+            $(".net-pay-week").text(((netIncome / 52).toFixed(0)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
+            $(".net-pay-fortnight").text(((netIncome / 26).toFixed(0)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
+            $(".net-pay-month").text(((netIncome / 12).toFixed(0)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
+            $(".net-pay-annual").text(((netIncome).toFixed(0)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
  
             $(".tax-inc-week").text(((income / 52).toFixed(0)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
             $(".tax-inc-fortnight").text(((income / 26).toFixed(0)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
             $(".tax-inc-month").text(((income / 12).toFixed(0)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
             $(".tax-inc-annual").text(income.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
 
-            var taxAmount = income - calculate
+           
 
-            $(".tax-week").text(((taxAmount / 52).toFixed(0)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
-            $(".tax-fortnight").text(((taxAmount / 26).toFixed(0)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
-            $(".tax-month").text(((taxAmount / 12).toFixed(0)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
-            $(".tax-annual").text(taxAmount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
+            $(".tax-week").text(((calculate / 52).toFixed(0)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
+            $(".tax-fortnight").text(((calculate / 26).toFixed(0)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
+            $(".tax-month").text(((calculate / 12).toFixed(0)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
+            $(".tax-annual").text(calculate.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
 
 
 
