@@ -2,8 +2,8 @@
  
         
         $(".formtrigger").keyup(function() {
-            var workIncome = $("#workIncome").val().trim();
-            var otherIncome = $("#otherIncome").val().trim();
+            var workIncome = parseInt($("#workIncome").val());
+            var otherIncome = parseInt($("#otherIncome").val() || 0);
             var income =  workIncome + otherIncome;
             var calculate;
             var year = $("#year").val().trim();
