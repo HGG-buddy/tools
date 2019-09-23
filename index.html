@@ -13,18 +13,17 @@
 <body>
     <div class="container-fluid">
         <div class="row">
+            <!-------------------LEFT PANEL --------------------------------->
             <div class="col-lg-6 left-panel">
-
-
                 <form class="left-form">
-                    <h1 class="display-8">Income Tax Calculator</h1>
+                    <h1 class="display-8"> <i class="fas fa-calculator"></i> Income Tax Calculator</h1>
                     <div class="input-group mb-3">
                         <!-- Income -->
                         <label for="workIncome" class="col-12 ">What is your before tax work income p.a.?</label>
                         <div class="input-group-prepend">
                             <span class="input-group-text">$</span>
                         </div>
-                        <input type="number"  class="form-control formtrigger" 
+                        <input type="number" class="form-control formtrigger"
                             aria-label="Amount (to the nearest dollar)" id="workIncome">
                         <div class="input-group-append">
                             <span class="input-group-text">.00</span>
@@ -46,15 +45,25 @@
                     <!-- Financial Year -->
                     <label for="year" class="col-12 ">Financial year</label>
                     <select class="form-control formtrigger" id="year" style="margin-bottom: 10px;">
-                        <option>2020</option>
-                        <option>2019</option>
+                        <option>2019-2020</option>
+                        <option>2018-2019</option>
                     </select>
-
-                    <div id="result1" class="result"
-                        style="text-align: center; color:midnightblue; font-weight: 500; font-size: 20px; "></div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="true" id="foreign-resident">
+                        <label class="form-check-label" for="foreign-resident">
+                            Foreign Resident
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="help-loan" id="help-loan">
+                        <label class="form-check-label" for="help-loan">
+                            HELP
+                        </label>
+                    </div>
 
                 </form>
             </div>
+            <!-------------------RIGHT PANEL --------------------------------->
             <div class="col-lg-6 right-panel">
 
                 <table class="result-table">
@@ -90,7 +99,33 @@
 
                 </table>
 
+                <button type="button" class="btn btn-primary helpbutton" data-toggle="modal"
+                    data-target="#exampleModalScrollable">
+                    Help
+                </button>
 
+                <div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog"
+                    aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-scrollable" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalScrollableTitle">Tax Calculator</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                ...
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
 
             </div>
         </div>
@@ -99,6 +134,16 @@
 
 
     <!-------------------------- js --------------------------------------------->
+    <script src="https://kit.fontawesome.com/da2b48d07d.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/autonumeric/4.1.0/autoNumeric.js"></script>
     <script type="text/javascript" src="script.js">  </script>

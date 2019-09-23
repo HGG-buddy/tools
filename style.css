@@ -1,3 +1,10 @@
+.helpbutton {
+    float:right;
+    margin: 5px;
+    background: steelblue;
+    border-color:steelblue;
+}
+
 
 
 .bg1 {

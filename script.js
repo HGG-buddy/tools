@@ -1,23 +1,62 @@
 
- 
-        
+// issue - foreign resident dont update on tick if no keyup
+
+
+console.log(foreignRes);
+var foreignRes;
+var workIncome;
+var otherIncome;
+var income;
+var calculate;
+var year;
+var netIncome;
+
+// not reducing the scope via tick
+$("#foreign-resident").change(function() {
+    foreignRes = $("#foreign-resident").val();
+
+    console.log(foreignRes);
+            // 0 – $90,000
+
+            // 32.5c for each $1
+            
+            // $90,001 – $180,000
+            
+            // $29,250 plus 37c for each $1 over $90,000
+            
+            // $180,001 and over
+            
+            // $62,550 plus 45c for each $1 over $180,000
+
+});
+
+
         $(".formtrigger").keyup(function() {
-            var workIncome = parseInt($("#workIncome").val());
-            var otherIncome = parseInt($("#otherIncome").val() || 0);
-            var income =  workIncome + otherIncome;
-            var calculate;
-            var year = $("#year").val().trim();
+            workIncome = parseInt($("#workIncome").val() || 0);
+            otherIncome = parseInt($("#otherIncome").val() || 0);
+            income =  workIncome + otherIncome;
+            year = $("#year").val().trim();
+         
             console.log(workIncome);
             console.log(otherIncome);
             console.log("total income = " + income);
-            // var workIncome = parseInt(document.querySelector("#workIncome").value||0);
-            // var otherIncome = parseInt(document.querySelector("#otherIncome").value||0);
-            // var income = workIncome + otherIncome;
-            // var calculate;
+
+            if (foreignRes == "foreign-resident") {
+
+                if(income <= 90000) {
+                    calculate = (income * 0.325)
+                } else if (income <= 180000) {
+                    calculate = ((income - 90000) * 0.37) + 29250
+                } else if (income > 180000) {
+                    calculate = ((income - 180000) * 0.45) + 62550
+                };
+
+                netIncome = income - calculate;
+                displayfun (netIncome)
+
+            } else {
             
-            // var year = parseInt(document.querySelector("#year").value);
-            
-            if(year == 2020){
+            if(year == "2019-2020"){
                 if (income < 18200) {
                     calculate = income * 0;
                 } else if (income < 37000) {
@@ -27,7 +66,7 @@
                 } else if (income < 180000) {
                     calculate = ((income - 90000) * 0.37)+20797;
                 } else calculate = ((income - 180000) * 0.45)+54097;
-            } else if (year == 2019) {
+            } else if (year == "2018-2019") {
                 if (income < 18200) {
                     calculate = income * 0;
                 } else if (income < 37000) {
@@ -38,26 +77,28 @@
                     calculate = ((income - 90000) * 0.37)+20797;
                 } else calculate = ((income - 180000) * 0.45)+54097;
             } else if (year == 2018);
-            
-            var netIncome = income - calculate
-
-            $(".net-pay-week").text(((netIncome / 52).toFixed(0)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
-            $(".net-pay-fortnight").text(((netIncome / 26).toFixed(0)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
-            $(".net-pay-month").text(((netIncome / 12).toFixed(0)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
-            $(".net-pay-annual").text(((netIncome).toFixed(0)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
- 
-            $(".tax-inc-week").text(((income / 52).toFixed(0)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
-            $(".tax-inc-fortnight").text(((income / 26).toFixed(0)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
-            $(".tax-inc-month").text(((income / 12).toFixed(0)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
-            $(".tax-inc-annual").text(income.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
-
-           
-
-            $(".tax-week").text(((calculate / 52).toFixed(0)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
-            $(".tax-fortnight").text(((calculate / 26).toFixed(0)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
-            $(".tax-month").text(((calculate / 12).toFixed(0)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
-            $(".tax-annual").text(calculate.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
-
-
-
+        };
+            netIncome = income - calculate;
+            displayfun (netIncome)
         });
+   
+
+function displayfun (netIncome) {
+        $(".net-pay-week").text(((netIncome / 52).toFixed(0)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
+        $(".net-pay-fortnight").text(((netIncome / 26).toFixed(0)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
+        $(".net-pay-month").text(((netIncome / 12).toFixed(0)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
+        $(".net-pay-annual").text(((netIncome).toFixed(0)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
+
+        $(".tax-inc-week").text(((income / 52).toFixed(0)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
+        $(".tax-inc-fortnight").text(((income / 26).toFixed(0)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
+        $(".tax-inc-month").text(((income / 12).toFixed(0)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
+        $(".tax-inc-annual").text(income.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
+
+       
+
+        $(".tax-week").text(((calculate / 52).toFixed(0)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
+        $(".tax-fortnight").text(((calculate / 26).toFixed(0)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
+        $(".tax-month").text(((calculate / 12).toFixed(0)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
+        $(".tax-annual").text(calculate.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
+
+};
