@@ -1,3 +1,45 @@
+
+/* -----------Resources-------------- */
+
+.resource-bg {
+    background-color:steelblue; 
+    height: 100vh;
+}
+
+.container-fluid.resource-bg {
+    display:flex;
+    flex-direction: row;
+    flex-wrap:wrap;
+    justify-content: center;
+    align-content: center
+
+}
+
+.resource-title {
+  
+    background-color: rgb(219, 219, 219);
+    margin:20px;
+    padding:20px;
+}
+.resouce-child {
+   
+    background-color: rgb(219, 219, 219);
+    margin:20px;
+    padding:20px;
+}
+
+
+
+
+
+
+/* -------------------------- */
+
+.col-12::first-letter {
+   
+    font-weight: 500;
+}
+
 .helpbutton {
     float:right;
     margin: 5px;
@@ -16,6 +58,8 @@
     overflow-y: auto;
 
 }
+
+
 
 .box1 {
     background-color: lightblue;
