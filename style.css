@@ -35,6 +35,10 @@
 
 /* -------------------------- */
 
+.result-set {
+    max-width: 600px;
+}
+
 .col-12::first-letter {
    
     font-weight: 500;

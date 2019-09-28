@@ -49,23 +49,25 @@
                         <option>2018-2019</option>
                     </select>
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="true" id="foreign-resident">
-                        <label class="form-check-label" for="foreign-resident">
-                            Foreign Resident
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="help-loan" id="help-loan">
+                        <input class="form-check-input checkbox" type="checkbox" value="helpLoan" id="help-loan" option="false">
                         <label class="form-check-label" for="help-loan">
                             HELP
                         </label>
                     </div>
+                    <div class="form-check">
+                        <input class="form-check-input checkbox" type="checkbox" value="foreignRes" id="foreign-resident" option="false">
+                        <label class="form-check-label" for="foreign-resident">
+                            Foreign Resident
+                        </label>
+                    </div>
+
 
                 </form>
             </div>
             <!-------------------RIGHT PANEL --------------------------------->
             <div class="col-lg-6 right-panel">
-
+                
+                <div class="result-set">
                 <table class="result-table">
                     <tr>
                         <th>2020</th>
@@ -95,10 +97,11 @@
                         <td class="tax-month"></td>
                         <td class="tax-annual"></td>
                     </tr>
-
-
+                    
                 </table>
-
+                <div ><h5 id="effectiveTax"> </h5></div>
+               </div>
+                
                 <button type="button" class="btn btn-primary helpbutton" data-toggle="modal"
                     data-target="#exampleModalScrollable">
                     Help
