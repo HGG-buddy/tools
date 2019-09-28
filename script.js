@@ -12,26 +12,30 @@ var year;
 var netIncome;
 
 // not reducing the scope via tick
-$("#foreign-resident").change(function() {
+
+
+// use onload and trigger inside the function  https://learn.jquery.com/using-jquery-core/document-ready/
+
+$(document).ready(function() {
+    processForm()
+
+$(".formtrigger").keyup(processForm);
+// don't use  (processForm());
+$("#foreign-resident, #help-loan").change(function() {
     foreignRes = $("#foreign-resident").val();
+    
+        console.log(foreignRes)
+    });
 
-    console.log(foreignRes);
-            // 0 – $90,000
 
-            // 32.5c for each $1
-            
-            // $90,001 – $180,000
-            
-            // $29,250 plus 37c for each $1 over $90,000
-            
-            // $180,001 and over
-            
-            // $62,550 plus 45c for each $1 over $180,000
 
 });
 
 
-        $(".formtrigger").keyup(function() {
+
+function processForm () {
+
+        
             workIncome = parseInt($("#workIncome").val() || 0);
             otherIncome = parseInt($("#otherIncome").val() || 0);
             income =  workIncome + otherIncome;
@@ -80,8 +84,7 @@ $("#foreign-resident").change(function() {
         };
             netIncome = income - calculate;
             displayfun (netIncome)
-        });
-   
+        };
 
 function displayfun (netIncome) {
         $(".net-pay-week").text(((netIncome / 52).toFixed(0)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
