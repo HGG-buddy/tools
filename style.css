@@ -12,7 +12,6 @@
     flex-wrap:wrap;
     justify-content: center;
     align-content: center
-
 }
 
 .resource-title {
@@ -28,12 +27,16 @@
     padding:20px;
 }
 
+/* -------Income Distribution Calculator------------------- */
+
+.in-dis-bg {
+    background-color:steelblue; 
+    
+}
 
 
 
-
-
-/* -------------------------- */
+/* -------Income Tax Calculator------------------- */
 
 .result-set {
     max-width: 600px;
@@ -62,7 +65,6 @@
     overflow-y: auto;
 
 }
-
 
 
 .box1 {
@@ -95,9 +97,19 @@
 
 }
 
-.row {
+.row.index{
     height:100vh;
 }
+
+.row.resources {
+ width: 100%
+}
+
+.col-md-12.resource {
+    display:flex;
+    flex-wrap: wrap;
+}
+
 
 .left-form {
     max-width: 400px;
@@ -115,7 +127,7 @@
 
 tr {
     border-bottom: 1px solid black; 
-    text-align: right;
+    text-align: left;
 }
 td {
     padding:3px 30px;

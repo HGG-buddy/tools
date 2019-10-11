@@ -27,15 +27,21 @@ $(document).ready(function () {
     $(".checkbox").change(function () {
         var optionStatus = $(this).attr("option");
 
-        if (optionStatus == "false") {
-            $(this).attr("option", "true")
-        } else {
-            $(this).attr("option", "false")
-        }
+    //     if (optionStatus == "false") {
+    //         $(this).attr("option", "true")
+    //     } else {
+    //         $(this).attr("option", "false")
+    //     }
+
+    optionStatus == "false"? $(this).attr("option","true"): $(this).attr("option","false")
         processForm()
     });
 
+
+   
+
 });
+
 
 function processForm() {
     workIncome = parseInt($("#workIncome").val() || 0);

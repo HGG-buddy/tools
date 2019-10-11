@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Income Tax Calculator</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="in-dis-bg">
+    <div class="container">
+        <div class="row">
+            <!-------------------LEFT PANEL --------------------------------->
+            <!-- income to be allocated -->
+            <!-- columns - Name | current income | Help | Foreign Resident | Optium Allocation  -->
+
+            <div class="col-lg-12 in-dis-bg">
+                <form class="">
+                    <h2 class="display-8"> <i class="fas fa-calculator"></i> Income Distribution Calculator</h2>
+                    <div class="input-group mb-3">
+                        <!-- Before tax income -->
+                        <label for="businessIncome" class="col-12 ">Before tax income to be allocated:</label>
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">$</span>
+                        </div>
+                        <input type="number" value="50000" class="form-control formtrigger"
+                            aria-label="Amount (to the nearest dollar)" id="business-income">
+                        <div class="input-group-append">
+                            <span class="input-group-text">.00</span>
+                        </div>
+                    </div>
+                    <div id="append">
+                        <!------------- 1--------------->
+                        <div class="form-row">
+                            <div class="form-group col-lg-2">
+                                <label for="Name1">Name</label>
+                                <input type="text" class="form-control" id="name1" placeholder="Name">
+                            </div>
+                            <div class="form-group col-lg-2">
+                                <label for="income1">Current Income</label>
+                                <input type="number" class="form-control" id="current-income1"
+                                    placeholder="Current Income">
+                            </div>
+                            <div class="form-group col-lg-2">
+                                <label for="inputPassword4">xxx</label>
+                                <input type="number" class="form-control" id="max-income1" placeholder="Max Income">
+                            </div>
+
+                            <div class="form-group col-lg-2">
+                                <label for="inputEmail4">$ To Allocate</label>
+                                <input type="number" class="form-control" id="allocate1" placeholder="$"   readonly>
+                            </div>
+                        </div>
+                        <!------------- 2--------------->
+                        <div class="form-row">
+                            <div class="form-group col-lg-2">
+                                <input type="text" class="form-control" id="name2" placeholder="Name">
+                            </div>
+                            <div class="form-group col-lg-2">
+                                <input type="number" class="form-control" id="current-income2"
+                                    placeholder="Current Income">
+                            </div>
+                            <div class="form-group col-lg-2">
+                                <input type="number" class="form-control" id="max-income2" placeholder="Max Income">
+                            </div>
+                            <div class="form-group col-lg-2">
+                                <input type="number" class="form-control" id="allocate2" placeholder="$"  value="" readonly>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="button" class="btn btn-secondary btn-sm" id="add-button">Add</button>
+                    <button type="button" class="btn btn-secondary btn-sm" id="remove-button">Remove</button>
+                </form>
+            </div>
+
+        </div>
+    </div>
+    </div>
+
+
+
+    <!-------------------------- js --------------------------------------------->
+    <script src="https://kit.fontawesome.com/da2b48d07d.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/autonumeric/4.1.0/autoNumeric.js"></script>
+    <script type="text/javascript" src="income-distribute.js">  </script>
+
+</body>
+
+</html>
