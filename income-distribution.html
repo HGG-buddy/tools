@@ -11,6 +11,18 @@
 </head>
 
 <body class="in-dis-bg">
+        <ul class="nav justify-content-end" >
+                <li class="nav-item">
+                  <a class="nav-link active" href="./index.html" style="color: white;">Income Tax Cal</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="./income-distribution.html" style="color: white;">Income Distribution</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="./resources.html" style="color: white;">Resources</a>
+                </li>
+              
+              </ul>
     <div class="container">
         <div class="row">
             <!-------------------LEFT PANEL --------------------------------->
@@ -18,6 +30,7 @@
             <!-- columns - Name | current income | Help | Foreign Resident | Optium Allocation  -->
 
             <div class="col-lg-12 in-dis-bg">
+                  
                 <form class="">
                     <h2 class="display-8"> <i class="fas fa-calculator"></i> Income Distribution Calculator</h2>
                     <div class="input-group mb-3">
@@ -30,6 +43,7 @@
                             aria-label="Amount (to the nearest dollar)" id="business-income">
                         <div class="input-group-append">
                             <span class="input-group-text">.00</span>
+                    
                         </div>
                     </div>
                     <div id="append">
@@ -37,42 +51,43 @@
                         <div class="form-row">
                             <div class="form-group col-lg-2">
                                 <label for="Name1">Name</label>
-                                <input type="text" class="form-control" id="name1" placeholder="Name">
+                                <input type="text" class="form-control" id="name0" placeholder="Name">
                             </div>
                             <div class="form-group col-lg-2">
                                 <label for="income1">Current Income</label>
-                                <input type="number" class="form-control" id="current-income1"
+                                <input type="number" class="form-control" id="current-income0"
                                     placeholder="Current Income">
                             </div>
                             <div class="form-group col-lg-2">
                                 <label for="inputPassword4">xxx</label>
-                                <input type="number" class="form-control" id="max-income1" placeholder="Max Income">
+                                <input type="number" class="form-control" id="max-income0" placeholder="Max Income">
                             </div>
 
                             <div class="form-group col-lg-2">
                                 <label for="inputEmail4">$ To Allocate</label>
-                                <input type="number" class="form-control" id="allocate1" placeholder="$"   readonly>
+                                <input type="number" class="form-control" id="allocate0" placeholder="$"   readonly>
                             </div>
                         </div>
                         <!------------- 2--------------->
                         <div class="form-row">
                             <div class="form-group col-lg-2">
-                                <input type="text" class="form-control" id="name2" placeholder="Name">
+                                <input type="text" class="form-control" id="name1" placeholder="Name">
                             </div>
                             <div class="form-group col-lg-2">
-                                <input type="number" class="form-control" id="current-income2"
+                                <input type="number" class="form-control" id="current-income1"
                                     placeholder="Current Income">
                             </div>
                             <div class="form-group col-lg-2">
-                                <input type="number" class="form-control" id="max-income2" placeholder="Max Income">
+                                <input type="number" class="form-control" id="max-income1" placeholder="Max Income">
                             </div>
                             <div class="form-group col-lg-2">
-                                <input type="number" class="form-control" id="allocate2" placeholder="$"  value="" readonly>
+                                <input type="number" class="form-control" id="allocate1" placeholder="$"  value="" readonly>
                             </div>
                         </div>
                     </div>
                     <button type="button" class="btn btn-secondary btn-sm" id="add-button">Add</button>
                     <button type="button" class="btn btn-secondary btn-sm" id="remove-button">Remove</button>
+                   <div style="width: 100%; text-align: center"><button type="button" class="btn btn-primary" id="cal">Calculate</button></div>
                 </form>
             </div>
 

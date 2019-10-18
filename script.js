@@ -1,7 +1,4 @@
 
-// issue - 146 repetitive
-// why is effective rate on the top
-
 var workIncome;
 var otherIncome;
 var income;
@@ -13,11 +10,6 @@ var foreignRes = false;
 var helpLoan = false;
 var helpRepay = 0;
 
-// not reducing the scope via tick
-
-
-// use onload and trigger inside the function  https://learn.jquery.com/using-jquery-core/document-ready/
-
 $(document).ready(function () {
     processForm()
 
@@ -26,22 +18,10 @@ $(document).ready(function () {
 
     $(".checkbox").change(function () {
         var optionStatus = $(this).attr("option");
-
-    //     if (optionStatus == "false") {
-    //         $(this).attr("option", "true")
-    //     } else {
-    //         $(this).attr("option", "false")
-    //     }
-
-    optionStatus == "false"? $(this).attr("option","true"): $(this).attr("option","false")
+        optionStatus == "false"? $(this).attr("option","true"): $(this).attr("option","false")
         processForm()
     });
-
-
-   
-
 });
-
 
 function processForm() {
     workIncome = parseInt($("#workIncome").val() || 0);
@@ -57,6 +37,7 @@ function processForm() {
         foreignCal()
 
     } else if (helpLoanOption == "true") {
+        
         helpCal()
 
     } else {
